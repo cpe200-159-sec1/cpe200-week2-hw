@@ -61,7 +61,8 @@ public class PList {
         PNode tmp = head;
 
         while (tmp != null) {
-            // implement your code here
+            System.out.print(tmp.data);
+            tmp=tmp.next;
         }
         System.out.println();
     }
