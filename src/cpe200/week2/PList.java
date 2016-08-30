@@ -14,13 +14,18 @@ public class PList {
     }
 
     public void pushToTail(char i) {
-        // implement your code here
+        tail = new PNode(i, null, tail);
+        if (head==null)
+            head = tail;
+        else
+            tail.next.prev = tail;
+
+
     }
 
     public char popHead() {
-        char i=head.data;
+        char i = head.data;
         PNode tmp = head;
-
         if (head==tail)
             head = tail = null;
         else {
@@ -28,18 +33,36 @@ public class PList {
             head.prev = null;
             tmp.next = null;
         }
-
         size--;
-
         return i;
     }
 
     public char popTail() {
-        // implement your code here
+        char i = tail.data;
+        PNode tmp = tail ;
+            if(head==tail)
+                head = tail =null;
+            else{
+                tail = tail.prev;
+                tail.next = null;
+                tmp.prev = null;
+            }
+            size--;
+        return i;
     }
 
     public boolean search(char i) {
-        // implement your code here
+        PNode tmp = head;
+        int b = 0;
+        while (tmp != null){
+        if(i == tmp.data){
+            return true;
+        }
+
+        tmp = tmp.next;
+
+        }
+        return false;
     }
 
     public boolean isEmpty() { return (head == null); }
@@ -47,14 +70,23 @@ public class PList {
     public void printForward() {
         PNode tmp = head;
 
-        while (tmp != null) {
-            // implement your code here
+        while (tmp != null ) {
+            System.out.print(tmp.data);
+            tmp = tmp.next;
         }
         System.out.println();
     }
 
     public void printBackward() {
-        // implement your code here
+        PNode tmp = tail;
+
+        while (tmp != null)
+        {
+            System.out.print(tmp.data);
+            tmp = tmp.prev;
+        }
+
+        System.out.println();
     }
 
     public int getSize() {
@@ -63,4 +95,5 @@ public class PList {
 
     private PNode head, tail;
     private int size=0;
+
 }
