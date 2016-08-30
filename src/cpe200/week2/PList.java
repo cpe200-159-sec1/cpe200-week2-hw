@@ -13,7 +13,7 @@ public class PList {
         size++;
     }
 
-    public void pushToTail(char i)
+    public void pushToTail (char i)
     {
         PNode temp = new PNode(i, head, null);
         temp.data =i;
