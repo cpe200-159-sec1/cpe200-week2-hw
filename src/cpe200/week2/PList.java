@@ -14,7 +14,9 @@ public class PList {
     }
 
     public void pushToTail(char i) {
-        // implement your code here
+        tail.next=new PNode(i,tail.prev,tail);
+        tail.next=null;
+        size++;
     }
 
     public char popHead() {
