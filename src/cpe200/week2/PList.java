@@ -64,11 +64,16 @@ public class PList {
             System.out.print(tmp.data);
             tmp=tmp.next;
         }
-        System.out.println();
+        System.out.println("");
     }
 
     public void printBackward() {
-        // implement your code here
+        PNode tmp=tail;
+        while(tmp!=head){
+            System.out.print(tmp.data);
+            tmp=tmp.prev;
+        }
+        System.out.println("");
     }
 
     public int getSize() {
