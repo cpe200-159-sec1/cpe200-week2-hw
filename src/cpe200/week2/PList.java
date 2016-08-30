@@ -38,18 +38,19 @@ public class PList {
 
     public char popTail() {
         char i=tail.data;
-        if(tail.prev!=head){
-            tail.prev=tail.prev.prev;
-        }
+        tail=tail.prev;
+        tail.next=null;
+        size--;
         return i;
     }
 
     public boolean search(char i) {
         PNode currentNode=head;
-        while(currentNode.data!=i){
-            currentNode=currentNode.next;
+        while(currentNode!=null){
             if(currentNode.data==i)
                 return true;
+            currentNode=currentNode.next;
+
         }
         return false;
 
@@ -69,7 +70,7 @@ public class PList {
 
     public void printBackward() {
         PNode tmp=tail;
-        while(tmp!=head){
+        while(tmp!=null){
             System.out.print(tmp.data);
             tmp=tmp.prev;
         }
