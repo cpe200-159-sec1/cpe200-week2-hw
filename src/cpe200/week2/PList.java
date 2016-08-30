@@ -20,6 +20,7 @@ public class PList {
         if (head == null) {
             tail = head = newNode;
         } else {
+            newNode.prev = tail;
             tail.next = newNode;
             tail = newNode;
         }
@@ -45,11 +46,11 @@ public class PList {
 
     public char popTail() {
         if (tail == null)
-            throw new RuntimeException("LinkList is Empty");
+            throw new RuntimeException("PList is Empty");
         char ret = tail.data;
-        if (tail == head) {
+        if(tail.prev == null) {
             tail = head = null;
-        } else {
+        }else {
             tail = tail.prev;
             tail.next = null;
         }
