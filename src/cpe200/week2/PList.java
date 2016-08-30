@@ -37,11 +37,22 @@ public class PList {
     }
 
     public char popTail() {
-        // implement your code here
+        char i=tail.data;
+        if(tail.prev!=head){
+            tail.prev=tail.prev.prev;
+        }
+        return i;
     }
 
     public boolean search(char i) {
-        // implement your code here
+        PNode currentNode=head;
+        while(currentNode.data!=i){
+            currentNode=currentNode.next;
+            if(currentNode.data==i)
+                return true;
+        }
+        return false;
+
     }
 
     public boolean isEmpty() { return (head == null); }
