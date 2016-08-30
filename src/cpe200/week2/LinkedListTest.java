@@ -1,7 +1,6 @@
 package cpe200.week2;
 
-public class LinkedListTest {
-
+public class LinkedListTest{
     public static void main(String[] args) {
 	    PList l = new PList();
 
