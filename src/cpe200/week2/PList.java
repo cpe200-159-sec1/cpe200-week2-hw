@@ -78,13 +78,6 @@ public class PList {
         else{
             return false;
         }
-        /*
-        while(tmp.data != i){
-            if(tmp.next==null) return false;
-            tmp = tmp.next;
-        }
-        return true;
-        */
     }
 
     public boolean isEmpty() { return (head == null); }
