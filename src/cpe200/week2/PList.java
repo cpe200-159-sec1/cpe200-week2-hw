@@ -17,11 +17,17 @@ public class PList {
         // implement your code here
 
         PNode tmp = head;
+        PNode iTmp = null;
+
+        iTmp.data = i;
+
 
         while (tmp.next != null){
             tmp = tmp.next;
         }
-        tmp.data = i;
+
+        tmp.next = iTmp;
+        iTmp.prev = tmp;
 
 
 
