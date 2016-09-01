@@ -28,6 +28,7 @@ public class PList {
 
         tmp.next = iTmp;
         iTmp.prev = tmp;
+        size++;
 
 
 
@@ -63,7 +64,7 @@ public class PList {
 
         char i = tmp.data;
         Ptmp = null;                        //delete data
-
+        size--;
         return i;
 
 
