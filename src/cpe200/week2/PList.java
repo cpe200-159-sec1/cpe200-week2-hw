@@ -14,7 +14,23 @@ public class PList {
     }
 
     public void pushToTail(char i) {
-        // implement your code here
+        if(head.next!=null) {
+            tail.next = new PNode(i,null,tail);
+            tail = tail.next;
+            size++;
+        }
+        else if(head.next==null)
+        {
+            head.next=new PNode(i,null,head);
+            tail=head.next;
+            size++;
+        }
+        else
+        {
+            head=new PNode(i,null,null);
+            tail=head;
+            size++;
+        }
     }
 
     public char popHead() {
@@ -35,26 +51,50 @@ public class PList {
     }
 
     public char popTail() {
-        // implement your code here
+        if(head!=null)
+        {
+            char temp=tail.data;
+            tail=tail.prev;
+            tail.next=null;
+            size--;
+            return temp;
+        }
+        else return ' ';
     }
 
     public boolean search(char i) {
-        // implement your code here
+        PNode scan=head;
+        while (scan!=null)
+        {
+            if(scan.data==i) return true;
+            scan=scan.next;
+        }
+        return false;
     }
 
-    public boolean isEmpty() { return (head == null); }
+    public boolean isEmpty() {
+        return (head == null);
+    }
 
     public void printForward() {
         PNode tmp = head;
 
         while (tmp != null) {
-            // implement your code here
+            System.out.print(tmp.data+" ");
+            tmp=tmp.next;
         }
         System.out.println();
     }
 
     public void printBackward() {
-        // implement your code here
+        PNode tmp = tail;
+
+        while (tmp.prev!= null) {
+            System.out.print(tmp.data+" ");
+            tmp=tmp.prev;
+        }
+        System.out.print(tmp.data+" ");
+        System.out.println();
     }
 
     public int getSize() {
