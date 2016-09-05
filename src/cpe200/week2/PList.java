@@ -40,11 +40,24 @@ public class PList {
     }
 
     public char popTail() {
-        // implement your code here
+        char i=tail.data;
+        PNode tmp = tail;
+
+        if (tail==head)
+            tail = head = null;
+        else {
+            tail = tail.prev;
+            tail.next = null;
+            tmp.prev = null;
+        }
+
+        size--;
+
+        return i;
     }
 
     public boolean search(char i) {
-        // implement your code here
+        return true;
     }
 
     public boolean isEmpty() { return (head == null); }
