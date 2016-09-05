@@ -57,7 +57,12 @@ public class PList {
     }
 
     public boolean search(char i) {
-        return true;
+        PNode tmp = head;
+        while (tmp != tail){
+            if (tmp.data==i)return true;
+            tmp = tmp.next;
+        }
+        return false;
     }
 
     public boolean isEmpty() { return (head == null); }
