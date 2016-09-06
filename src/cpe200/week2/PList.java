@@ -10,49 +10,44 @@ public class PList {
             tail = head;
         else
             head.next.prev = head;
-            size++;
+        size++;
     }
 
     public void pushToTail(char i) {
-        tail = new PNode(i, tail, null);
-        if(head == null) {
+        tail = new PNode(i,null,tail);
+        if(head == null)
             head = tail;
-        }else
-            tail.next.prev = tail;
-            size++;
+        else
+            tail.prev.next = tail;
+         size++;
     }
 
 
 
 
     public char popHead() {
-        char i=head.data;
-        PNode tmp = head;
-
-        if (head==tail)
+        char i = head.data;
+        if (head == tail)
             head = tail = null;
         else {
             head = head.next;
             head.prev = null;
-            tmp.next = null;
         }
         size--;
         return i;
     }
 
     public char popTail() {
-        char i = tail.data;
-        PNode tmp = tail;
-
-        if (tail == head) {
-            tail = head = null;
-        } else
+        char i =tail.data;
+        if(head == tail)
+           head = tail = null;
+        else{
             tail = tail.prev;
-             tail.next = null;
-            tmp.prev = null;
-
+            tail.next = null;
+        }
         size--;
         return i;
+
 
     }
 
@@ -61,8 +56,9 @@ public class PList {
         while(tmp != null) {
             if (tmp.data == i)
                 return true;
-
-        }return false;
+            tmp = tmp.next;
+        }
+        return false;
     }
 
 
@@ -82,10 +78,9 @@ public class PList {
     public void printBackward() {
         PNode tmp = tail;
 
-        while (tmp != null) {
+        while( tmp != null){
             System.out.print(tmp.data);
             tmp = tmp.prev;
-
         }
         System.out.println();
     }
