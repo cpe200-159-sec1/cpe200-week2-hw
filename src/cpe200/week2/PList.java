@@ -1,5 +1,7 @@
 package cpe200.week2;
 
+//okay run pass ._.;
+
 public class PList {
 
     public PList() { head = tail = null; }
@@ -14,7 +16,15 @@ public class PList {
     }
 
     public void pushToTail(char i) {
-        // implement your code here
+
+        if (head == null)
+            {
+            head = new PNode(i, head, null);
+            tail = head;
+            }
+        else
+        tail = new PNode(i, null, tail);
+
     }
 
     public char popHead() {
@@ -35,11 +45,34 @@ public class PList {
     }
 
     public char popTail() {
-        // implement your code here
+        char i = tail.data;
+        PNode tmp = tail;
+
+        if (head == tail)
+            head = tail = null;
+        else
+            {
+            tail = tail.prev;
+            tail.next = null;
+            tmp.prev = null;
+            }
+
+        size--;
+
+        return i;
     }
 
     public boolean search(char i) {
-        // implement your code here
+        PNode tmp = head;
+        while (tmp.data != i)
+        {
+            if (tmp.next != null)
+            {
+                tmp = tmp.next;
+            }
+            else return false;
+        }
+        return true;
     }
 
     public boolean isEmpty() { return (head == null); }
@@ -48,13 +81,19 @@ public class PList {
         PNode tmp = head;
 
         while (tmp != null) {
-            // implement your code here
+            System.out.printf(tmp.data + " ");
+            tmp = tmp.next;
         }
         System.out.println();
     }
 
     public void printBackward() {
-        // implement your code here
+        PNode tmp = tail;
+
+        while (tmp != null){
+            System.out.printf(tmp.data + " ");
+            tmp = tmp.prev;
+        }
     }
 
     public int getSize() {
