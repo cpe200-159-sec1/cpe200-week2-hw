@@ -1,6 +1,6 @@
 package cpe200.week2;
 
-//okay run pass ._.
+//okay run pass ._.;
 
 public class PList {
 
