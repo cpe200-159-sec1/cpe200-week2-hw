@@ -14,9 +14,9 @@ public class PList {
     }
 
     public void pushToTail(char i) {
-        tail = new PNode(i, head, null);
+        tail = new PNode(i, null , head);
         if(head==null){
-            tail = head;
+            head = tail;
         }
         else{
            tail.prev.next = tail;
@@ -78,7 +78,7 @@ public class PList {
         PNode tmp = head;
 
         while (tmp != null) {
-            System.out.println(tmp.data);
+            System.out.print(tmp.data);
             tmp = tmp.next;
         }
         System.out.println();
@@ -88,7 +88,7 @@ public class PList {
         PNode tmp = tail;
 
         while (tmp != null) {
-            System.out.println(tmp.data);
+            System.out.print(tmp.data);
             tmp = tmp.prev;
         }
         System.out.println();
