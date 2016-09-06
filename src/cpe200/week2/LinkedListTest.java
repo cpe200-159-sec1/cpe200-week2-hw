@@ -30,5 +30,6 @@ public class LinkedListTest {
 
         System.out.println("Found '3' in list?: "+ l.search('3'));
         System.out.println("List Size: "+l.getSize());
+
     }
 }
